@@ -3,6 +3,8 @@
 #include <vector>
 #include "Eigen/Dense"
 
+#include "measurement_package.h"
+
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
 using namespace std;
@@ -28,6 +30,10 @@ public:
   * A helper method to calculate Jacobians.
   */
   MatrixXd CalculateJacobian(const VectorXd& x_state);
+
+  //Convert from polar to cartesian and vice versa
+  void Polar2Cartesian(const MeasurementPackage& measurement_pack, double& px, double& py);
+  Eigen::VectorXd Cartesian2Polar(const Eigen::VectorXd x);
 
 };
 
